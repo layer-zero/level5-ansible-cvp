@@ -4,16 +4,16 @@
   connection: local
   gather_facts: no
 
-  vars: 
+  vars:
     path: "{{lookup('env','PWD')}}"
-  vars_files: 
-     - ../vars/CVP-base.yml
-   
+  vars_files:
+    - ../vars/CVP_base.yml
+
   tasks:
 
     - name: "Build default container topology"
       arista.cvp.cv_container_v3:
-        topology: "{{CONTAINERS_DEFAULT}}"
+        topology: "{{ CONTAINERS_DEFAULT }}"
 
     - name: "Apply configlets for default config"
       arista.cvp.cv_device_v3:
